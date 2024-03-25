@@ -1,0 +1,22 @@
+.container{
+    text-align: center;
+    font-family: "Poppins";
+    padding-top: 100px;
+}
+
+.heading{
+    font-size: 30px;
+}
+
+.create{
+
+    position: absolute;
+    left:80px;
+    display:block;
+    justify-content: space-between;
+}
+
+.communities{
+    position: absolute;
+    right:80px;
+}

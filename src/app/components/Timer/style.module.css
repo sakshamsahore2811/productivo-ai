@@ -1,0 +1,70 @@
+.container {
+  font-family: "Poppins";
+}
+
+.time{
+  text-align: center; /* Align text center */
+  font-size: 44px;
+  margin-top: 50px;
+  margin-bottom: 140px;
+  width: 100%; /* Make time component occupy full width */
+}
+
+
+.flexContainer {
+  display: flex;
+  justify-content: space-between; /* Align components with space between */
+  width: 100%;
+}
+
+.component1,
+.component2,
+.component3 {
+  flex: 1; /* Each component takes equal space */
+  margin: 0 10px; /* Adjust margins as needed */
+}
+.buttons {
+  display: flex;
+  justify-content: space-between; /* Arrange buttons horizontally with space between */
+  margin-bottom: 20px;
+  font-family: "Poppins";
+}
+
+.buttons button {
+  flex: 1; /* Each button takes equal space */
+  margin: 0 5px; /* Adjust margins between buttons */
+}
+.textAreaContainer textarea {
+  width: 100%;
+}
+
+.barGraph {
+  margin-top: 20px;
+}
+
+.rectangle {
+  color: white;
+  background-color: rgba(164, 78, 217,0.8); /* Slightly dark shade of white */
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 10px; /* Adjust border radius as needed for rounded corners */
+  box-shadow: 0 4px 6px rgba(164, 78, 217,0.6); /* Add shadow effect */
+}
+
+.rectangle table {
+  width: 100%; /* Set table width to 100% */
+}
+
+.rectangle td {
+  text-align: center; /* Align table data content to the left */
+}
+
+.subject {
+  text-align: left; /* Align subject text to the left */
+}
+
+.focus{
+  font-style: italic;
+  padding-top: 30px;
+  font-weight: 100;
+  font-size: 24px;
+}

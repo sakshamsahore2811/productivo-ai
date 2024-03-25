@@ -1,0 +1,25 @@
+.heading{
+    text-align: center;
+    font-family: "Poppins";
+    font-size: 30px;
+    padding-top: 60px;
+}
+
+.tasks{
+    text-align: center;
+    font-family: "Poppins";
+}
+
+.listContainer{
+    font-family: "Poppins";
+}
+.addtask{
+    padding-top: 10px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+}
