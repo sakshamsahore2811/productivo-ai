@@ -12,6 +12,7 @@ const Timer = () => {
   const [timeEntries, setTimeEntries] = useState([]);
   const [sessionData, setSessionData] = useState({});
   const [elapsedTime, setElapsedTime] = useState(0);
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
 
   const topicInputRef = useRef(null);
 
@@ -26,6 +27,24 @@ const Timer = () => {
       return () => clearInterval(interval);
     }
   }, [timer, startTime]);
+
+  useEffect(() => {
+    const phraseInterval = setInterval(() => {
+      setCurrentPhraseIndex(index => (index + 1) % phrases.length);
+    }, 900000); // 30 minutes in milliseconds
+
+    return () => clearInterval(phraseInterval);
+  }, []);
+
+  const phrases = [
+    'Getting started 🚶‍♂️',
+    'Pushing forward 🏃',
+    'Keep on the path 🚲',
+    'Forging ahead 🚴',
+    'Unstoppable momentum 🛵',
+    'Almost there 🏍️',
+    'God level 🏎️'
+  ];
 
   const startTimer = () => {
     if (!topic.trim()) {
@@ -114,7 +133,7 @@ const Timer = () => {
       <div className={styles.time}>
         {/* Display current time */}
         {formatTime(elapsedTime)}
-        <br/><div className={styles.focus}>Stay Focused</div>
+        <br/><div className={styles.focus}>{phrases[currentPhraseIndex]}</div>
       </div>
       <div className={styles.flexContainer}>
         {/* Component 1: Buttons and text area */}
@@ -168,4 +187,4 @@ const Timer = () => {
   );
 }
 
-export default Timer
+export default Timer;
