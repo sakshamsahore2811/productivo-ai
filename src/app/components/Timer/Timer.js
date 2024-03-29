@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './style.module.css';
-import { Bar } from 'react-chartjs-2';
+import { Bar, Pie } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
-import { CategoryScale, LinearScale, BarElement, BarController } from 'chart.js';
-Chart.register(CategoryScale, LinearScale, BarElement, BarController);
+import { CategoryScale, LinearScale, BarElement, BarController, ArcElement, Tooltip } from 'chart.js';
+Chart.register(CategoryScale, LinearScale, BarElement, BarController, ArcElement, Tooltip);
 
-const Timer = () => {
+const Timer = ({ todayList }) => {
   const [timer, setTimer] = useState(null);
   const [startTime, setStartTime] = useState(null);
   const [topic, setTopic] = useState('');
@@ -31,19 +31,19 @@ const Timer = () => {
   useEffect(() => {
     const phraseInterval = setInterval(() => {
       setCurrentPhraseIndex(index => (index + 1) % phrases.length);
-    }, 900000); // 30 minutes in milliseconds
+    }, 1800000); // 30 minutes in milliseconds
 
     return () => clearInterval(phraseInterval);
   }, []);
 
   const phrases = [
-    'Getting started 🚶‍♂️',
-    'Pushing forward 🏃',
-    'Keep on the path 🚲',
-    'Forging ahead 🚴',
-    'Unstoppable momentum 🛵',
-    'Almost there 🏍️',
-    'God level 🏎️'
+    'Getting started🚶‍♂️',
+    'Pushing forward🏃',
+    'Keep on the path🚲',
+    'Forging ahead🚴',
+    'Unstoppable momentum🛵',
+    'Almost there🏍️',
+    'God level🏎️'
   ];
 
   const startTimer = () => {
@@ -128,12 +128,39 @@ const Timer = () => {
     },
   };
 
+  const pieChartData = {
+    labels: Object.keys(sessionData),
+    datasets: [
+      {
+        label: 'Time Spent',
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#FF9933', '#4CAF50', '#9C27B0', '#00BCD4'],
+        data: Object.values(sessionData),
+      },
+    ],
+  };
+
   return (
     <div className={styles.container}>
-      <div className={styles.time}>
+      <div className={styles.timercontainer}>
+      
+      {/* Component 2: Bar graph */}
+      <div className={styles.component2}>
+          <div className={styles.barGraph}>
+            
+            <Bar data={chartData} options={chartOptions} />
+          </div>
+        </div>
+        <div className={styles.time}>
         {/* Display current time */}
         {formatTime(elapsedTime)}
         <br/><div className={styles.focus}>{phrases[currentPhraseIndex]}</div>
+      </div>
+        {/* Component 4: Pie chart */}
+        <div className={styles.component4}>
+          <div className={styles.pieChart}>
+            <Pie data={pieChartData} />
+          </div>
+        </div>
       </div>
       <div className={styles.flexContainer}>
         {/* Component 1: Buttons and text area */}
@@ -146,20 +173,14 @@ const Timer = () => {
           <textarea
             ref={topicInputRef}
             rows="4"
-            cols="50"
+            cols="80"
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
-            placeholder="Enter your subject/topic ..."
+            placeholder="Enter your subject/topic/task ..."
           />
         </div>
         
-        {/* Component 2: Bar graph */}
-        <div className={styles.component2}>
-          <div className={styles.barGraph}>
-            
-            <Bar data={chartData} options={chartOptions} />
-          </div>
-        </div>
+        
         
         {/* Component 3: Progress so far table */}
         <div className={styles.component3}>
@@ -182,6 +203,8 @@ const Timer = () => {
             </table>
           </div>
         </div>
+        
+        
       </div>
     </div>
   );

@@ -1,0 +1,21 @@
+.container{
+    padding-top: 150px;
+    font-family: "Poppins";
+    display: flex;
+    justify-content: space-between;
+}
+.socials{
+    display: flex;
+}
+.gmail{
+    padding-left: 20px;
+}
+.instagram{
+    padding-left: 20px;
+}
+.social{
+    padding-left: 20px;
+}
+.twitter{
+    padding-left: 20px;
+}

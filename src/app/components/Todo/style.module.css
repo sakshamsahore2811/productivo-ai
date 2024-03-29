@@ -18,8 +18,36 @@
 }
 
 .container{
+    text-align: center;
     display: flex;
     justify-content: space-between;
     padding-left: 40px;
     padding-right: 40px;
+}
+.todaytasks{
+    font-size: 30px;
+    font-family: "Poppins";
+    text-align: center; 
+}
+.tasknametoday{
+    padding-left: 600px;
+}
+.flexcontainer{
+    text-align: center;
+    display: flex;
+}
+.tipcontainer{
+    padding-top: 80px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+.oct{
+    background-size: cover;
+    transition: background-image 0.3s ease;
+}
+.tip{
+    font-family: "Poppins";
+    font-size: 15px;
+    text-align: center;
 }
